@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NodeOne</title>
+
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/public/css/bootstrap.css">
+    <link rel="stylesheet" href="/public/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="/public/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="/public/css/style.css">
+</head>
+
+<body>
+
+<div class="container">
+    <header>
+        <div class="row">
+            <div class="col-sm-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-faded padding1em">
+                    <a class="navbar-brand" href="/">NodeOne</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div id="navbarNavDropdown" class="navbar-collapse collapse">
+                        <ul class="navbar-nav mr-auto">
+                        </ul>
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/login">Login</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    About
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="/profile">Profile</a>
+                                    <a class="dropdown-item" href="/profile/cv">Cv</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Service</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Portfolio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="row">
+            <div class="col-sm-12">
+                <%- body%>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="row">
+            <div class="col-sm-12">
+                Menu
+            </div>
+        </div><div class="row">
+            <div class="col-sm-12">
+                Social Media
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                © Copyright 2018 - All Rights Reserved
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script type="application/javascript" src="/public/js/jquery-3.3.1.min.js"></script>
+<script type="application/javascript" src="/public/js/bootstrap.js"></script>
+
+</body>
+</html>

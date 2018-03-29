@@ -1,0 +1,22 @@
+body {
+    background-color: lemonchiffon;
+}
+
+.padding1em {
+     padding: 1rem 0rem;
+ }
+
+.bglemon {
+    background-color: lemonchiffon;
+}
+.bgRed {
+    background-color:chartreuse;
+}
+
+.login-panel {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
