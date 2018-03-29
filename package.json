@@ -5,7 +5,8 @@
     "express": "^4.16.3",
     "ejs": "^2.5.8",
     "express-ejs-layouts": "^2.3.1",
-    "body-parser": "^1.18.2"
+    "body-parser": "^1.18.2",
+    "mongoose": "^5.0.12"
   },
   "scripts": {
     "start": "nodemon app.js"
