@@ -56,3 +56,7 @@ module.exports.deluser = function (req,res) {
         res.redirect('/admin')
     });
 };
+
+module.exports.contactme = function (req, res) {
+    res.render('contactme')
+};

@@ -10,5 +10,6 @@ router.get('/login', mycontroller.login);
 router.post('/login', mycontroller.loginpost);
 router.get('/signup', mycontroller.signup);
 router.post('/signup', mycontroller.signuppost);
+router.get('/contactme', mycontroller.contactme);
 
 module.exports = router;
