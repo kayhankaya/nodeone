@@ -6,10 +6,12 @@ var mycontroller = require('../controller/myController');
 router.get('/', mycontroller.index);
 router.get('/admin', mycontroller.admin);
 router.get('/admin/deluser/:email', mycontroller.deluser);
+router.post('/useredit/:id', mycontroller.useredit);
 router.get('/login', mycontroller.login);
 router.post('/login', mycontroller.loginpost);
 router.get('/signup', mycontroller.signup);
 router.post('/signup', mycontroller.signuppost);
 router.get('/contactme', mycontroller.contactme);
+router.post('/submit', mycontroller.submit);
 
 module.exports = router;

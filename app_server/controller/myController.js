@@ -1,4 +1,5 @@
 var user = require('../models/users');
+var msj = require('../models/contact');
 
 module.exports.index = function (req, res) {
     res.render('home')
@@ -48,15 +49,43 @@ module.exports.admin = function (req, res) {
     });
 };
 
-module.exports.deluser = function (req,res) {
-    user.findOneAndRemove({email:req.params.email},function (err) {
-        if(err){
+module.exports.deluser = function (req, res) {
+    user.deleteOne({email: req.params.email}, function (err) {
+        if (err) {
             console.log('sil hata')
         }
         res.redirect('/admin')
     });
 };
 
+module.exports.useredit = function (req, res) {
+    user.updateOne({_id: req.params.id},
+        {$set: {name: req.body.firstname, lastname: req.body.lastname, email: req.body.email, pass: req.body.password}}, function (err) {
+            if (err) {
+                console.log('hata')
+            }
+            res.redirect('/admin')
+        });
+};
+
 module.exports.contactme = function (req, res) {
     res.render('contactme')
+};
+
+module.exports.submit = function (req, res) {
+    res.render('contactme');
+    var newmessage = new msj({
+        name: req.body.cname,
+        email: req.body.cemail,
+        title: req.body.ctitle,
+        messages: req.body.cmessage
+    });
+
+    newmessage.save(function (err) {
+        if (err) {
+            console.log('hata:' + err);
+        } else {
+            console.log('mesaj eklendi.');
+        }
+    });
 };

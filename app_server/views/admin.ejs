@@ -1,7 +1,6 @@
-
 <h1>Admin Page</h1>
 
-<h2>Users</h2>
+<h2>Users</h2> <a href="/signup">New User</a>
 <table class="table table-striped table-hover">
     <thead>
     <tr>
@@ -13,14 +12,59 @@
     </tr>
     </thead>
     <tbody>
-    <%for(var i=0;i<users.length;i++){%>
+    <% for(var i = 0;i < users.length;i++){ %>
     <tr>
-        <th scope="row"><%=i+1%></th>
-        <td><%=users[i].name%></td>
-        <td><%=users[i].lastname%></td>
-        <td><%=users[i].email%></td>
-        <td><a href="/admin/deluser/<%=users[i].email%>">Del</a></td>
+        <th scope="row"><%= i + 1 %></th>
+        <td><%= users[i].name %></td>
+        <td><%= users[i].lastname %></td>
+        <td><%= users[i].email %></td>
+        <td>
+            <a class="btn btn-danger btn-sm" href="/admin/deluser/<%= users[i].email %>">Del</a> /
+            <button type="button" class="btn btn-primary btn-sm myModalButton" data-target="myModal-<%= users[i].id %>"
+                    id="myBtn">Edit
+            </button>
+
+            <div class="modal fade" id="myModal-<%= users[i].id %>" tabindex="-1" role="dialog"
+                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Edit User</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form action="/useredit/<%= users[i].id %>" method="post">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <input type="text" name="firstname" value="<%= users[i].name %>"
+                                           class="form-control" placeholder="First name">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="lastname" value="<%= users[i].lastname %>"
+                                           class="form-control" placeholder="Last name">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" name="email" value="<%= users[i].email %>" class="form-control"
+                                           id="exampleInputEmail1" aria-describedby="emailHelp"
+                                           placeholder="Enter email">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="password" value="<%= users[i].pass %>"
+                                           class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary" value="useredit">Save changes</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </td>
     </tr>
-    <%}%>
+    <% } %>
     </tbody>
 </table>
+
