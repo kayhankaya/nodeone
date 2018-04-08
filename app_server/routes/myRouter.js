@@ -1,4 +1,3 @@
-
 var express = require('express');
 var router = express.Router();
 var mycontroller = require('../controller/myController');
@@ -13,5 +12,9 @@ router.get('/signup', mycontroller.signup);
 router.post('/signup', mycontroller.signuppost);
 router.get('/contactme', mycontroller.contactme);
 router.post('/submit', mycontroller.submit);
+router.get('/guestbook', mycontroller.guestbook);
+router.post('/gbookadd', mycontroller.gbookadd);
+
+router.get('/xxx', mycontroller.xxx);
 
 module.exports = router;

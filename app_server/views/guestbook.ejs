@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <br>
+            <div class="row">
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-8">
+                    <div class="card card-info">
+                        <form action="/gbookadd" method="post" class="p-5">
+                            <p class="h4 text-center mb-4">Guest Book</p>
+
+                            <div class="md-form form-sm"> <i class="fa fa-user prefix grey-text"></i>
+                                <input name="gname" type="text" id="form3" class="form-control form-control-sm">
+                                <label for="form3">Your name</label>
+                            </div>
+
+                            <div class="md-form form-sm"> <i class="fa fa-envelope prefix grey-text"></i>
+                                <input name="gemail" type="text" id="form2" class="form-control form-control-sm">
+                                <label for="form2">Your email</label>
+                            </div>
+
+                            <div class="md-form form-sm"> <i class="fa fa-tag prefix grey-text"></i>
+                                <input name="gsubject" type="text" id="form32" class="form-control form-control-sm">
+                                <label for="form34">Subject</label>
+                            </div>
+
+                            <div class="md-form form-sm"> <i class="fa fa-pencil-alt prefix grey-text"></i>
+                                <textarea name="gmessage" type="text" id="form8" class="md-textarea form-control form-control-sm" rows="4"></textarea>
+                                <label for="form8">Your message</label>
+                            </div>
+
+                            <div class="text-center mt-4">
+                                <button type="submit" value="gbookadd" class="btn btn-primary">Send <i class="fa fa-paper-plane ml-1"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <br>
+            <p class="h4 text-center mb-4">Guest Messages</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card border-primary mb-3">
+                <div class="card-header">Guest Name</div>
+                <div class="card-body text-primary">
+                    <h5 class="card-title">Message Subject</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

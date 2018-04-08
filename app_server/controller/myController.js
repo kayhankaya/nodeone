@@ -1,12 +1,17 @@
 var user = require('../models/users');
 var msj = require('../models/contact');
+var book = require('../models/gbooks');
 
 module.exports.index = function (req, res) {
-    res.render('home')
+    res.render('home');
 };
 
 module.exports.admin = function (req, res) {
-    res.render('admin')
+    res.render('admin');
+};
+
+module.exports.xxx = function (req, res) {
+    res.render('./adminpages/xxx');
 };
 
 module.exports.login = function (req, res) {
@@ -49,6 +54,12 @@ module.exports.admin = function (req, res) {
     });
 };
 
+module.exports.xxx = function (req, res) {
+    book.find(function (err, results) {
+        res.render('./adminpages/xxx', {books: results});
+    });
+};
+
 module.exports.deluser = function (req, res) {
     user.deleteOne({email: req.params.email}, function (err) {
         if (err) {
@@ -60,7 +71,14 @@ module.exports.deluser = function (req, res) {
 
 module.exports.useredit = function (req, res) {
     user.updateOne({_id: req.params.id},
-        {$set: {name: req.body.firstname, lastname: req.body.lastname, email: req.body.email, pass: req.body.password}}, function (err) {
+        {
+            $set: {
+                name: req.body.firstname,
+                lastname: req.body.lastname,
+                email: req.body.email,
+                pass: req.body.password
+            }
+        }, function (err) {
             if (err) {
                 console.log('hata')
             }
@@ -89,3 +107,28 @@ module.exports.submit = function (req, res) {
         }
     });
 };
+
+module.exports.guestbook = function (req, res) {
+    res.render('guestbook')
+};
+
+module.exports.gbookadd = function (req, res) {
+    res.render('guestbook');
+    var newgbookmessage = new book({
+        name: req.body.gname,
+        email: req.body.gemail,
+        subject: req.body.gsubject,
+        messages: req.body.gmessage,
+        confirm: 0
+    });
+
+    newgbookmessage.save(function (err) {
+        if (err) {
+            console.log('hata:' + err);
+        } else {
+            console.log('gbook eklendi.');
+        }
+    });
+};
+
+

@@ -1,4 +1,3 @@
-
 var path = require('path');
 
 module.exports.profile = function (req, res) {
@@ -7,6 +6,6 @@ module.exports.profile = function (req, res) {
 };
 
 module.exports.cv = function (req, res) {
-    var cvDetail =['Eğitim','Referans','Eğitim','Proje'];
-    res.render('cv',{mesaj: 'Off cvye bak ya çok başarılı.',cvDetail: cvDetail});
+    var cvDetail = ['Eğitim', 'Referans', 'Eğitim', 'Proje'];
+    res.render('cv', {mesaj: 'Off cvye bak ya çok başarılı.', cvDetail: cvDetail});
 };
