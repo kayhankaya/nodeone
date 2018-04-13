@@ -16,12 +16,12 @@
                             </div>
 
                             <div class="md-form form-sm"> <i class="fa fa-envelope prefix grey-text"></i>
-                                <input name="gemail" type="text" id="form2" class="form-control form-control-sm">
+                                <input name="gemail" type="email" id="exampleInputEmail1" aria-describedby="emailHelp" class="form-control form-control-sm">
                                 <label for="form2">Your email</label>
                             </div>
 
                             <div class="md-form form-sm"> <i class="fa fa-tag prefix grey-text"></i>
-                                <input name="gsubject" type="text" id="form32" class="form-control form-control-sm">
+                                <input name="gsubject" type="text" id="form32" aria-describedby="emailHelp" class="form-control form-control-sm">
                                 <label for="form34">Subject</label>
                             </div>
 
@@ -49,13 +49,15 @@
     </div>
     <div class="row">
         <div class="col-sm-12">
+            <% for(var i = 0;i < books.length;i++){ %>
             <div class="card border-primary mb-3">
-                <div class="card-header">Guest Name</div>
+                <div class="card-header"><%= books[i].name %></div>
                 <div class="card-body text-primary">
-                    <h5 class="card-title">Message Subject</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h5 class="card-title"><%= books[i].subject %></h5>
+                    <p class="card-text"><%= books[i].messages %></p>
                 </div>
             </div>
+            <% } %>
         </div>
     </div>
 </div>

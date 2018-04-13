@@ -6,24 +6,30 @@ module.exports.index = function (req, res) {
     res.render('home');
 };
 
-module.exports.admin = function (req, res) {
-    res.render('admin');
-};
-
-module.exports.xxx = function (req, res) {
-    res.render('./adminpages/xxx');
-};
-
 module.exports.login = function (req, res) {
     res.render('login');
 };
 
-module.exports.loginpost = function (req, res) {
-    console.log(req.body);
-    res.render('login', {
-        email: req.body.email,
-        password: req.body.password
-    });
+module.exports.loginpost = function (req, res, next) {
+    if (req.body.email && req.body.password) {
+        user.authenticate(req.body.email, req.body.password, function (error, user) {
+            if (error || !user) {
+                res.render('login', {
+                    note: 'Wrong email or password.'
+                });
+            } else {
+                console.log(user);
+                req.session.userId = user.id;
+                req.session.save();
+                return res.redirect('/admin');
+            }
+        });
+    } else {
+        var err = new Error('All fields required.');
+        err.status = 400;
+        return next(err);
+    }
+    ;
 };
 
 module.exports.signup = function (req, res) {
@@ -46,44 +52,6 @@ module.exports.signuppost = function (req, res) {
             console.log('kullanıcı eklendi.');
         }
     });
-};
-
-module.exports.admin = function (req, res) {
-    user.find(function (err, results) {
-        res.render('admin', {users: results});
-    });
-};
-
-module.exports.xxx = function (req, res) {
-    book.find(function (err, results) {
-        res.render('./adminpages/xxx', {books: results});
-    });
-};
-
-module.exports.deluser = function (req, res) {
-    user.deleteOne({email: req.params.email}, function (err) {
-        if (err) {
-            console.log('sil hata')
-        }
-        res.redirect('/admin')
-    });
-};
-
-module.exports.useredit = function (req, res) {
-    user.updateOne({_id: req.params.id},
-        {
-            $set: {
-                name: req.body.firstname,
-                lastname: req.body.lastname,
-                email: req.body.email,
-                pass: req.body.password
-            }
-        }, function (err) {
-            if (err) {
-                console.log('hata')
-            }
-            res.redirect('/admin')
-        });
 };
 
 module.exports.contactme = function (req, res) {
@@ -109,11 +77,12 @@ module.exports.submit = function (req, res) {
 };
 
 module.exports.guestbook = function (req, res) {
-    res.render('guestbook')
+    book.find({confirm: true}, function (err, results) {
+        res.render('guestbook', {books: results});
+    });
 };
 
 module.exports.gbookadd = function (req, res) {
-    res.render('guestbook');
     var newgbookmessage = new book({
         name: req.body.gname,
         email: req.body.gemail,
@@ -121,13 +90,15 @@ module.exports.gbookadd = function (req, res) {
         messages: req.body.gmessage,
         confirm: 0
     });
-
     newgbookmessage.save(function (err) {
         if (err) {
             console.log('hata:' + err);
         } else {
             console.log('gbook eklendi.');
         }
+    });
+    book.find({confirm: true}, function (err, results) {
+        res.render('guestbook', {books: results});
     });
 };
 

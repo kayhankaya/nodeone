@@ -20,48 +20,7 @@
     <header>
         <div class="row bgheader no-gutters">
             <div class="col-sm-12">
-                <nav class="navbar navbar-expand-lg navbar-dark primary-color">
-                    <a class="navbar-brand" href="/">NodeOne</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-                            aria-controls="basicExampleNav"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="basicExampleNav">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="/">Home
-                                    <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/guestbook">Guestbook</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/login">Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/contactme">Contact Me</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                                   aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="/profile">Profile</a>
-                                    <a class="dropdown-item" href="/profile/cv">Cv</a>
-                                    <a class="dropdown-item" href="/">Something else here</a>
-                                </div>
-                            </li>
-
-                        </ul>
-                        <form class="form-inline">
-                            <div class="md-form mt-0">
-                                <input class="form-control mr-sm-2" type="text" placeholder="Search"
-                                       aria-label="Search">
-                            </div>
-                        </form>
-                    </div>
-                </nav>
+                <% include ./partials/header%>
             </div>
         </div>
     </header>
@@ -75,33 +34,7 @@
     <footer>
         <div class="row bgfooter no-gutters">
             <div class="col-sm-12">
-                <div class="row">
-                    <div class="col-sm-12 text-right">
-                        Menu
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12 text-center">
-                        <div class="fsocial">
-                            <a target="_blank" href="https://www.facebook.com/kayhankaya2009"><i
-                                        class="fab fa-facebook fa-2x"></i></a>
-                            <a target="_blank" href="https://twitter.com/kayhankaya_"><i
-                                        class="fab fa-twitter fa-2x"></i></a>
-                            <a target="_blank" href="https://www.instagram.com/kayhankaya"><i
-                                        class="fab fa-instagram fa-2x"></i></a>
-                            <a target="_blank" href="https://www.linkedin.com/in/kayakayhan"><i
-                                        class="fab fa-linkedin fa-2x"></i></a>
-                            <a target="_blank" href="https://github.com/kayhankaya"><i class="fab fa-github fa-2x"></i></a>
-                            <a target="_blank" href="https://plus.google.com/+KayhanKAYA"><i
-                                        class="fab fa-google-plus fa-2x"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12 text-center">
-                        © Copyright 2018 - All Rights Reserved
-                    </div>
-                </div>
+                <% include ./partials/footer%>
             </div>
         </div>
     </footer>

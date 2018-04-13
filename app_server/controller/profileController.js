@@ -1,5 +1,3 @@
-var path = require('path');
-
 module.exports.profile = function (req, res) {
     console.log(req.test);
     res.render('profile');
