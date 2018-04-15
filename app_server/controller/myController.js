@@ -18,7 +18,7 @@ module.exports.loginpost = function (req, res, next) {
                     note: 'Wrong email or password.'
                 });
             } else {
-                console.log(user);
+                //console.log(user);
                 req.session.userId = user.id;
                 req.session.save();
                 return res.redirect('/admin');
@@ -29,7 +29,6 @@ module.exports.loginpost = function (req, res, next) {
         err.status = 400;
         return next(err);
     }
-    ;
 };
 
 module.exports.signup = function (req, res) {

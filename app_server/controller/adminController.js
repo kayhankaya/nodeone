@@ -2,7 +2,7 @@ var user = require('../models/users');
 var book = require('../models/gbooks');
 
 module.exports.admin = function (req, res, next) {
-    console.log(req.session);
+    console.log('session user:' + req.session.userId);
     user.find(function (err, results) {
         user.findById(req.session.userId)
             .exec(function (error, user) {
@@ -10,11 +10,10 @@ module.exports.admin = function (req, res, next) {
                     return next(error);
                 } else {
                     if (user === null) {
-                        var err = new Error('Not authorized! Go back!');
-                        err.status = 400;
+                        res.render('nopage');
                         return next(err);
                     } else {
-                        return res.render('admin',{users: results});
+                        return res.render('./adminpages/admin',{users: results});
                     }
                 }
             });
