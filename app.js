@@ -4,6 +4,7 @@ var app = express();
 var ejsLayouts = require('express-ejs-layouts');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+//var parallel = require('paralleljs');
 var data;
 data = require("./app_server/models/db");
 
@@ -14,6 +15,7 @@ app.set('trust proxy', 1);
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(ejsLayouts);
+//app.use(parallel);
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.use(session({

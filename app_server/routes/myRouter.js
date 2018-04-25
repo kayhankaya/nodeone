@@ -11,6 +11,7 @@ router.post('/signup', mycontroller.signuppost);
 router.get('/contactme', mycontroller.contactme);
 router.post('/submit', mycontroller.submit);
 router.get('/guestbook', mycontroller.guestbook);
+router.get('/guestbook/:page', mycontroller.guestbook);
 router.post('/gbookadd', mycontroller.gbookadd);
 
 module.exports = router;
