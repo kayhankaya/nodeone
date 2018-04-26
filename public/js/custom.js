@@ -11,6 +11,19 @@ $(document).ready(function () {
     });
 });
 
+$(function(){
+    var hash = window.location.hash;
+    hash && $('ul.nav a[href="' + hash + '"]').tab('show');
+
+    $('.nav-tabs a').click(function (e) {
+        $(this).tab('show');
+        var scrollmem = $('body').scrollTop() || $('html').scrollTop();
+        window.location.hash = this.hash;
+        $('html,body').scrollTop(scrollmem);
+    });
+});
+
+
 // Regular map
 function regular_map() {
     var var_location = new google.maps.LatLng(36.912348, 30.639193);

@@ -15,7 +15,7 @@ module.exports.admin = function (req, res, next) {
                             return next(err);
                         } else {
                             return res.render('./adminpages/admin',
-                                {users : results1, books : results2});
+                                {users: results1, books: results2});
                         }
                     }
                 });
@@ -52,7 +52,7 @@ module.exports.gbookconf = function (req, res) {
             if (err) {
                 console.log('confirm hata')
             }
-            res.redirect('/admin')
+            res.redirect('/admin#gbook')
         });
 };
 
