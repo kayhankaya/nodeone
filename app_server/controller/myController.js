@@ -75,10 +75,19 @@ module.exports.submit = function (req, res) {
     });
 };
 
-module.exports.guestbook = function (req, res) {
-    book.find({confirm: true}, function (err, results) {
-        res.render('guestbook', {books: results});
-    });
+module.exports.guestbook = function (req, res, next) {
+    var perPage = 3;
+    var page = req.params.page || 1;
+
+    book.find({confirm: true})
+        .skip((perPage * page) - perPage)
+        .limit(perPage)
+        .exec(function (err, results) {
+            book.count({confirm: true}).exec(function (err, count) {
+                if (err) return next(err);
+                res.render('guestbook', {books: results, current: page, pages: Math.ceil(count / perPage)});
+            });
+        });
 };
 
 module.exports.gbookadd = function (req, res) {
