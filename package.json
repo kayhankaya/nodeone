@@ -10,8 +10,7 @@
     "nodemailer": "^4.6.4",
     "bcrypt": "^1.0.3",
     "express-session": "^1.15.6",
-    "connect-mongo": "^2.0.1",
-    "paralleljs": "^0.2.1"
+    "connect-mongo": "^2.0.1"
   },
   "scripts": {
     "start": "nodemon app.js"

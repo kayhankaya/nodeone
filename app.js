@@ -4,7 +4,6 @@ var app = express();
 var ejsLayouts = require('express-ejs-layouts');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-//var parallel = require('paralleljs');
 var data;
 data = require("./app_server/models/db");
 
